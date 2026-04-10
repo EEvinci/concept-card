@@ -5,20 +5,19 @@
 ## 🔌 安装方式
 
 ```bash
-# 方式一：从腾讯 SkillHub 安装（推荐，国内加速）
-curl -fsSL https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/install.sh | bash
-skillhub install concept-card
+# 从 GitHub 仓库安装（当前唯一可用方式）
+# 1. 克隆仓库
+git clone https://github.com/EEvinci/concept-card.git
 
-# 方式二：从 ClawHub 安装
-npx clawhub install concept-card
-
-# 方式三：下载 .skill 文件后手动安装
-# 下载地址：https://github.com/EEvinci/concept-card/releases
+# 2. 将内容放入 Agent 的 skills 目录
+# 具体路径请参考你的 Agent 文档说明
 ```
+
+> 💡 更多安装方式（待支持）：ClawHub / SkillHub 平台分发功能开发中，完成后会更新此处。
 
 ## ✨ 功能特点
 
-- **通用主题**：支持投资、金融、心理学、历史、科学、哲学、编程、语言等任何知识领域
+- **通用主题**：支持投资、金融、心理学，历史、科学、哲学、编程、语言等任何知识领域
 - **专业设计**：纯黑金配色 · 深蓝黑底 (#0a0e1a) + 金色点缀 (#f0b429)
 - **结构清晰**：三栏逻辑流 — 定义 → 机制 → 案例
 - **自动生成**：说一句话即可，无需手动设计
@@ -62,8 +61,6 @@ npx clawhub install concept-card
 
 ## 📁 示例卡片
 
-以下是使用本生成器制作的示例卡片：
-
 ### AI 系列（2026-04-10 生成）
 
 | 序号 | 主题 | 说明 |
@@ -90,11 +87,11 @@ concept-card/
 ├── assets/
 │   ├── template.html                # 完整 HTML 模板（浏览器直接打开）
 │   ├── preview.png                  # 效果预览图
-│   ├── card_llm.png               # 示例：LLM
-│   ├── card_harness.png           # 示例：Harness Engineering
-│   ├── card_context.png            # 示例：Context Engineering
-│   ├── card_agent.png              # 示例：Agent
-│   ├── card_ai.png               # 示例：AI
+│   ├── card_llm.png              # 示例：LLM
+│   ├── card_harness.png          # 示例：Harness Engineering
+│   ├── card_context.png          # 示例：Context Engineering
+│   ├── card_agent.png            # 示例：Agent
+│   ├── card_ai.png          # 示例：AI
 │   └── card_compound_interest.png # 示例：复利
 └── references/
     └── content-types.md            # 内容结构参考 + 图标规范
@@ -128,7 +125,7 @@ concept-card/
 
 ## 📖 相关资源
 
-- **Skill 下载**：https://github.com/EEvinci/concept-card
+- **GitHub 仓库**：https://github.com/EEvinci/concept-card
 - **模板文件**：`assets/template.html`（浏览器直接打开预览）
 
 ## License

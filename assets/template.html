@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投资概念卡片</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0e1a;
+  --gold: #f0b429;
+  --gold-dim: #c49010;
+  --text: #ffffff;
+  --text-dim: #9ca3af;
+  --green: #22c55e;
+  --red: #f87171;
+  --border: rgba(240,180,41,0.2);
+}
+body {
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text);
+  width: 1200px; height: 675px;
+  overflow: hidden; position: relative;
+}
+body::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(240,180,41,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240,180,41,0.03) 1px, transparent 1px);
+  background-size: 40px 40px; pointer-events: none;
+}
+.glow {
+  position: absolute; width:400px; height:400px;
+  top:-100px; right:-80px; border-radius:50%;
+  background: radial-gradient(circle, rgba(240,180,41,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.layout { display:grid; grid-template-columns:42% 32% 26%; height:100%; padding:28px 28px 22px; gap:20px; position:relative; z-index:1; }
+.left { display:flex; flex-direction:column; gap:12px; }
+.tag { display:inline-flex; align-items:center; gap:6px; background:rgba(240,180,41,0.10); border:1px solid var(--border); border-radius:20px; padding:5px 14px; font-size:12px; color:var(--gold); width:fit-content; letter-spacing:0.5px; }
+.main-title { font-size:54px; font-weight:800; line-height:1.05; letter-spacing:-1px; margin-top:4px; }
+.main-title .kw { color:var(--gold); }
+.sub-title { font-size:14px; color:var(--text-dim); letter-spacing:0.5px; margin-top:-4px; }
+.formula-box { background:rgba(240,180,41,0.07); border:1px solid var(--gold); border-radius:10px; padding:14px 18px; }
+.formula-label { font-size:11px; color:var(--gold-dim); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.formula-text { font-size:17px; color:var(--gold); font-weight:600; line-height:1.7; }
+.formula-note { font-size:12px; color:var(--text-dim); margin-top:6px; }
+.misconception { display:flex; align-items:flex-start; gap:8px; background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.2); border-radius:8px; padding:10px 14px; font-size:13px; color:var(--red); line-height:1.6; }
+.mi { font-size:15px; flex-shrink:0; margin-top:1px; }
+.quote { font-size:13px; color:var(--text-dim); border-left:2px solid var(--gold); padding-left:12px; line-height:1.75; font-style:italic; margin-top:auto; }
+.middle { display:flex; flex-direction:column; gap:10px; }
+.section-title { font-size:11px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; padding-bottom:6px; border-bottom:1px solid var(--border); }
+.model-card { flex:1; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:13px 15px; display:flex; flex-direction:column; gap:7px; }
+.model-header { display:flex; align-items:center; gap:8px; }
+.model-icon { font-size:18px; }
+.model-name { font-size:14px; font-weight:600; }
+.model-tag { font-size:10px; padding:2px 8px; border-radius:10px; margin-left:auto; }
+.tag-red   { background:rgba(239,68,68,0.15); color:var(--red); }
+.tag-gold  { background:rgba(240,180,41,0.12); color:var(--gold); }
+.tag-green { background:rgba(34,197,94,0.12); color:var(--green); }
+.model-desc { font-size:12px; color:var(--text-dim); line-height:1.65; }
+.right { display:flex; flex-direction:column; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:16px; gap:12px; }
+.case-title { font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.5px; }
+.case-scenario { font-size:12px; color:var(--text-dim); line-height:1.65; }
+.option { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:10px 13px; }
+.option-a { border-left:2px solid #6b7280; }
+.option-b { border-left:2px solid var(--gold); }
+.option-label { font-size:10px; color:var(--text-dim); letter-spacing:1px; margin-bottom:5px; }
+.option-text { font-size:12px; color:var(--text); line-height:1.6; }
+.option-calc { font-size:11px; color:var(--gold); margin-top:5px; font-family:'Courier New', monospace; }
+.verdict { background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); border-radius:8px; padding:10px 13px; font-size:12px; color:var(--green); line-height:1.65; }
+.verdict-icon { font-size:13px; margin-right:3px; }
+.footer { position:absolute; bottom:0; left:0; right:0; padding:8px 28px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.05); font-size:10px; color:rgba(255,255,255,0.2); }
+.footer-brand { color:var(--gold); font-weight:600; letter-spacing:1px; }
+.footer-tags { display:flex; gap:5px; }
+.footer-tag { background:rgba(255,255,255,0.04); border-radius:10px; padding:2px 8px; color:var(--text-dim); font-size:10px; }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="layout">
+  <div class="left">
+    <div class="tag">📈 投资 · 概念卡</div>
+    <div class="main-title">机会<span>成本</span></div>
+    <div class="sub-title">Opportunity Cost</div>
+    <div class="formula-box">
+      <div class="formula-label">▸ 核心公式</div>
+      <div class="formula-text">机会成本 = 放弃的最高价值选择</div>
+      <div class="formula-note">= The value of the best foregone alternative</div>
+    </div>
+    <div class="misconception">
+      <span class="mi">⚠️</span>
+      <span>显性成本（花出去的钱）≠ 机会成本<br>真正的代价是"那个被你放弃的最佳选项"</span>
+    </div>
+    <div class="quote">"Choosing one thing means giving up something else.<br>The cost of any choice is what you sacrifice."</div>
+  </div>
+  <div class="middle">
+    <div class="section-title">✦ 三个核心思维</div>
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-icon">🌀</span>
+        <span class="model-name">隐形成本</span>
+        <span class="model-tag tag-red">易忽略</span>
+      </div>
+      <div class="model-desc">决策时只算账面支出，忘了统计真正消耗的资源：时间、精力、最佳替代用途</div>
+    </div>
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-icon">⚖️</span>
+        <span class="model-name">预期收益 vs 实际</span>
+        <span class="model-tag tag-gold">决策</span>
+      </div>
+      <div class="model-desc">用"现在确认的收益"对比"未来可能的收益"，在不确定下做出更理性的选择</div>
+    </div>
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-icon">🚢</span>
+        <span class="model-name">沉没成本谬误</span>
+        <span class="model-tag tag-gold">陷阱</span>
+      </div>
+      <div class="model-desc">已经沉掉的船不该绑架你继续游泳——过去的投入不应用于绑架未来的决策</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="case-title">📊 决策算例</div>
+    <div class="case-scenario">你有10万现金，可选两个方向：</div>
+    <div class="option option-a">
+      <div class="option-label">方案 A</div>
+      <div class="option-text">银行定期存款<br>年化收益 2%</div>
+      <div class="option-calc">→ 一年收益 ¥2,000</div>
+    </div>
+    <div class="option option-b">
+      <div class="option-label">方案 B</div>
+      <div class="option-text">指数基金（历史年化 8%）<br>但波动较大，需持有3年</div>
+      <div class="option-calc">→ 一年收益 ¥8,000</div>
+    </div>
+    <div class="verdict">
+      <span class="verdict-icon">✅</span>
+      若你放弃B：机会成本 = ¥8,000/年<br>
+      选择A前，先问自己：放弃的值得吗？
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <span class="footer-brand">⚡ 投资概念卡</span>
+  <div class="footer-tags">
+    <span class="footer-tag">#投资思维</span>
+    <span class="footer-tag">#机会成本</span>
+    <span class="footer-tag">#决策框架</span>
+  </div>
+</div>
+</body>
+</html>

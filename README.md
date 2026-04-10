@@ -2,7 +2,19 @@
 
 > Concept Card Generator — 输入任意主题，一句话生成专业深色风格视觉卡片
 
-![](assets/preview.png)
+## 🔌 安装方式
+
+```bash
+# 方式一：从腾讯 SkillHub 安装（推荐，国内加速）
+curl -fsSL https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/install.sh | bash
+skillhub install concept-card
+
+# 方式二：从 ClawHub 安装
+npx clawhub install concept-card
+
+# 方式三：下载 .skill 文件后手动安装
+# 下载地址：https://github.com/EEvinci/concept-card/releases
+```
 
 ## ✨ 功能特点
 
@@ -24,6 +36,15 @@
 
 > ⚠️ **严格禁用**：蓝色、紫色、彩虹色等杂色干扰
 
+## 🎯 触发方式
+
+在支持此 Skill 的 AI Agent 中，直接说：
+
+```
+"帮我做一张关于XXX的卡"
+"生成一张XXX的概念卡"
+```
+
 ## 📐 卡片结构
 
 ```
@@ -37,16 +58,6 @@
 │  · 误区提示     │                  │                  │
 │  · 金句引用     │                  │                  │
 └──────────────────┴──────────────────┴──────────────────┘
-```
-
-## 🚀 快速使用
-
-在支持此 Skill 的 AI Agent 中，直接说：
-
-```
-"帮我做一张关于复利的卡"
-"生成一张锚定效应的概念卡"
-"做一张关于量子力学的科普卡"
 ```
 
 ## 📁 示例卡片
@@ -79,12 +90,12 @@ concept-card/
 ├── assets/
 │   ├── template.html                # 完整 HTML 模板（浏览器直接打开）
 │   ├── preview.png                  # 效果预览图
-│   ├── card_llm.png                # 示例：LLM
-│   ├── card_harness.png            # 示例：Harness Engineering
+│   ├── card_llm.png               # 示例：LLM
+│   ├── card_harness.png           # 示例：Harness Engineering
 │   ├── card_context.png            # 示例：Context Engineering
 │   ├── card_agent.png              # 示例：Agent
-│   ├── card_ai.png                # 示例：AI
-│   └── card_compound_interest.png  # 示例：复利
+│   ├── card_ai.png               # 示例：AI
+│   └── card_compound_interest.png # 示例：复利
 └── references/
     └── content-types.md            # 内容结构参考 + 图标规范
 ```
